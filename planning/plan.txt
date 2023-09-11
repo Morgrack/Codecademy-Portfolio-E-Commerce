@@ -1,0 +1,19 @@
+PLAN:
+1. Create React app with three pages using react-router-dom:
+- https://www.geeksforgeeks.org/what-is-react-router-dom/
+- Use Fetch.js
+- Log in / Register
+- Products (use dynamic flexbox)
+- Cart
+
+2. Create database with the following data:
+- Table 1: Username, Email, Password
+- Table 2: Product name, product price
+
+TO DO LIST:
+1. Get list of products and prices with getProducts and props.updateProducts.
+2. Render a list of the products in ProductsPage return, passing inCart, props.removeFromCart, props.addToCart, name and price props for each Product component.
+3. Render a list of cart items in CartsPage return, passing inCart, props.removeFromCart, props.addToCart, name and price props for each Product component.
+4. The list of cart items will use counts for multiple items.
+5. Login and log out authentication and PSQL security.
+6. CSS.
