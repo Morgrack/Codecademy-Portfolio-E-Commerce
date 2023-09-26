@@ -17,3 +17,5 @@ TO DO LIST:
 4. The list of cart items will use counts for multiple items.
 5. Login and log out authentication and PSQL security.
 6. CSS.
+
+ADD SEARCH BAR

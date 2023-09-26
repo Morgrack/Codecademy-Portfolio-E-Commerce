@@ -1,10 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 
 const LoginAndRegistrationPage = (props) => {
     return (
         <div>
             <h1>Login and registration page</h1>
-            <a href="./products">Log in</a>
+            <Link to="/products">Log In</Link>
         </div>
     )
 };

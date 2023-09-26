@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import { Link } from 'react-router-dom';
 import Product from "./productComponent";
 
 const ProductsPage = (props) => {
@@ -12,6 +13,7 @@ const ProductsPage = (props) => {
             },
             rejection => {
                 console.error(rejection.message);
+                alert(rejection.message);
             }
         );
 
@@ -20,9 +22,9 @@ const ProductsPage = (props) => {
     return (
         <div>
             <h1>Products page</h1>
-            <a href="./cart">Checkout</a>
+            <Link to="/cart">Checkout</Link>
             <br></br>
-            <a href="./">Log out</a>
+            <Link to="/">Log Out</Link>
             <br></br>
             <button onClick={getProducts}>Refresh</button>
         </div>
