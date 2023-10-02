@@ -4,10 +4,6 @@ import Product from "./productComponent";
 
 const CartPage = (props) => {
 
-    const removeFromCart = (name, price) => {
-
-    }
-
     return (
         <div>
             <h1>Cart page</h1>
@@ -18,6 +14,7 @@ const CartPage = (props) => {
             <button>Clear cart</button>
         </div>
     )
+    
 };
 
 export default CartPage;

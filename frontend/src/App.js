@@ -7,7 +7,7 @@ import ProductsPage from './components/products';
 
 function App() {
   const [cart, setCart] = useState([]);
-  const [products, setProducts] = useState([3, 4]);
+  const [products, setProducts] = useState([]);
   const [user, setUser] = useState([]);
 
   const addToCart = (name, price) => {
@@ -20,9 +20,19 @@ function App() {
     //filter
   }
 
-  const updateProducts = (newList) => {
-    setProducts(() => {return newList});
-  }
+  const getProducts = (searchParameter = "") => {
+    fetch('http://localhost:3001/', {method: 'GET', mode: 'no-cors'})
+        .then(
+        response => {
+            console.log(response.json);
+            //props.updateProducts
+        },
+        rejection => {
+            console.error(rejection.message);
+            alert(rejection.message);
+        }
+    );
+};
 
   return (
     <div className="App">
@@ -30,7 +40,7 @@ function App() {
         <Routes>
             <Route exact path="/" element={<LoginAndRegistrationPage />} />
             <Route exact path="/cart" element={<CartPage cart={cart} removeFromCart={removeFromCart}/>} />
-            <Route exact path="/products" element={<ProductsPage products={products} addToCart={addToCart} updateProducts={updateProducts} />} />
+            <Route exact path="/products" element={<ProductsPage products={products} addToCart={addToCart} getProducts={getProducts} />} />
         </Routes>
       </Router>
     </div>

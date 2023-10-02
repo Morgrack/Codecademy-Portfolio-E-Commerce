@@ -4,21 +4,7 @@ import Product from "./productComponent";
 
 const ProductsPage = (props) => {
 
-    const getProducts = () => {
-        fetch('http://localhost:3001/', {method: 'GET', mode: 'no-cors'})
-            .then(
-            response => {
-                console.log(response.json);
-                //props.updateProducts
-            },
-            rejection => {
-                console.error(rejection.message);
-                alert(rejection.message);
-            }
-        );
-
-    };
-
+    //add state and onChange for text input
     return (
         <div>
             <h1>Products page</h1>
@@ -26,9 +12,11 @@ const ProductsPage = (props) => {
             <br></br>
             <Link to="/">Log Out</Link>
             <br></br>
-            <button onClick={getProducts}>Refresh</button>
+            <input type="text"></input>
+            <button onClick={props.getProducts}>Search</button>
         </div>
     )
+    
 };
 
 export default ProductsPage;
