@@ -17,22 +17,15 @@ function App() {
 
   const removeFromCart = (name, price) => {
     const productToRemove = {name : name, price : price};
-    //filter
+    setCart(() => {return [cart.filter((element) => element !== productToRemove)]});
   }
 
-  const getProducts = (searchParameter = "") => {
-    fetch('http://localhost:3001/', {method: 'GET', mode: 'no-cors'})
-        .then(
-        response => {
-            console.log(response.json);
-            //props.updateProducts
-        },
-        rejection => {
-            console.error(rejection.message);
-            alert(rejection.message);
-        }
-    );
-};
+  const getProducts = async (searchParameter = "") => {
+    const response = await fetch('http://localhost:3001/', {method: 'GET', mode: 'no-cors'});
+    const results = await response.json();
+    console.log(results);
+    //THIS CODE IS FINE, IT'S SOMETHING TO DO WITH REACT
+  }
 
   return (
     <div className="App">

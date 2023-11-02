@@ -2,6 +2,8 @@ const express = require('express');
 const app = express();
 const queries = require('./queries')
 const port = 3001;
+var cors = require('cors')
+app.use(cors())
 
 //app.get
 app.get('/', queries.getProductsAndPrices)
