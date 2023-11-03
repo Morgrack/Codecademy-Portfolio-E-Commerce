@@ -1,7 +1,10 @@
 const getProducts = async (searchParameter = "") => {
-	const response = await fetch('http://localhost:3001/', {method: 'GET', mode: 'no-cors'});
-	const results = await response.json();
-	console.log(results);
+	try {
+    	const data = await (await fetch('http://localhost:3001/', {method: 'GET', mode: 'no-cors'})).json()
+    	console.log(data);
+    } catch (err) {
+    	console.log(err.message)
+    }
 }
 
 getProducts();

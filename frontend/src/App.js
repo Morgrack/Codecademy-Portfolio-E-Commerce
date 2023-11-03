@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CartPage from './components/cart';
 import LoginAndRegistrationPage from './components/loginAndRegistration';
 import ProductsPage from './components/products';
+import axios from 'axios';
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -21,10 +22,13 @@ function App() {
   }
 
   const getProducts = async (searchParameter = "") => {
-    const response = await fetch('http://localhost:3001/', {method: 'GET', mode: 'no-cors'});
-    const results = await response.json();
-    console.log(results);
-    //THIS CODE IS FINE, IT'S SOMETHING TO DO WITH REACT
+    try {
+      const data = await axios.get('http://localhost:3001/');
+      //const data = await (await fetch('http://localhost:3001/', {method: 'GET', mode: 'no-cors'})).json()
+      console.log(data);
+    } catch (err) {
+      console.log(err.message)
+    }
   }
 
   return (
@@ -32,7 +36,7 @@ function App() {
       <Router>
         <Routes>
             <Route exact path="/" element={<LoginAndRegistrationPage />} />
-            <Route exact path="/cart" element={<CartPage cart={cart} removeFromCart={removeFromCart}/>} />
+            <Route exact path="/cart" element={<CartPage cart={cart} removeFromCart={removeFromCart} />} />
             <Route exact path="/products" element={<ProductsPage products={products} addToCart={addToCart} getProducts={getProducts} />} />
         </Routes>
       </Router>
